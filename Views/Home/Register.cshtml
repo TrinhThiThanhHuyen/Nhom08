@@ -1,0 +1,69 @@
+﻿@model QLPKDKTN.Models.BenhNhan
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    tr {
+        line-height: 2.5;
+    }
+
+    td {
+        padding-top: 10px;
+    }
+
+    h1 {
+        color: crimson;
+    }
+</style>
+
+<h1>Đăng ký</h1>
+<div class="container;">
+    <div class="col-6">
+        @ViewBag.EmailError
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationMessageFor(model => model.TenBN, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Tuoi, "", new { @class = "text-danger" })
+        <table>
+            <tr>
+                <td>@Html.LabelFor(bn => bn.TenBN, "Họ Tên:")</td>
+                <td>@Html.TextBoxFor(bn => bn.TenBN, new { @placeholder = "Nhập họ tên" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(bn => bn.Tuoi, "Tuổi:")</td>
+                <td>@Html.TextBoxFor(bn => bn.Tuoi, new { @placeholder = "Nhập tuổi" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(bn => bn.DiaChi, "Địa chỉ:")</td>
+                <td>@Html.TextBoxFor(bn => bn.DiaChi, new { @placeholder = "Nhập địa chỉ" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(bn => bn.SDT, "Số Điện Thoại:")</td>
+                <td>@Html.TextBoxFor(bn => bn.SDT, new { @placeholder = "Nhập SĐT" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(bn => bn.Email, "Email:")</td>
+                <td>@Html.TextBoxFor(bn => bn.Email, new { @placeholder = "Nhập email" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(bn => bn.Password, "Mật Khẩu:")</td>
+                <td>@Html.TextBoxFor(bn => bn.Password, new { @placeholder = "Nhập mật khẩu" })</td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="Đăng Ký" /></td>
+            </tr>
+
+
+        </table>
+
+
+        }
+    </div>
+</div>

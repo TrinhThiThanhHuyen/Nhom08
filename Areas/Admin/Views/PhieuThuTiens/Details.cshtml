@@ -1,0 +1,51 @@
+﻿@model QLPKDKTN.Models.PhieuThuTien
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PhieuThuTien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BenhNhan.TenBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BenhNhan.TenBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayThu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DichVu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DichVu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThanhTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanhTien)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

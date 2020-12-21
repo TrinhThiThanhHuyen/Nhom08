@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+<style>
+    .navbar-inverse {
+        background-image: linear-gradient( 135deg, #81FFEF 10%, #F067B4 100%) !important;
+        border: none !important;
+        opacity: 0.9 !important;
+    }
+
+        .navbar-inverse .navbar-nav > li > a {
+            color: #000 !important;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .navbar-inverse .navbar-nav > li:hover a {
+            color: #772222 !important;
+        }
+</style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Bác Sĩ", "Index", "BacSis")</li>
+                    <li>@Html.ActionLink("Bệnh Nhân", "Index", "BenhNhans")</li>
+                    <li>@Html.ActionLink("Bệnh", "Index", "Benhs")</li>
+                    <li>@Html.ActionLink("Thuốc", "Index", "Thuocs")</li>
+                    <li>@Html.ActionLink("Hóa Đơn Thuốc", "Index", "HoaDonThuocs")</li>
+                    <li>@Html.ActionLink("Phiếu Thu Tiền", "Index", "PhieuThuTiens")</li>
+                    <li>@Html.ActionLink("Hồ Sơ", "Index", "HoSoes")</li>
+
+                    @if (Session["idBacSi"] == null)
+                    {
+                        <li>@Html.ActionLink("Đăng Ký", "Register", "Home")</li>
+                        <li>@Html.ActionLink("Đăng Nhập", "Login", "Home")</li>
+                    }
+                    else
+                    {
+                        <li><a>Xin chào: @Session["tenBS"]</a> </li>
+                        <li> @Html.ActionLink("Đăng Xuất", "Logout", "Home")</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @*<script type="text/javascript">
+    console.log('aaaaaa');
+    const a = document.getElementById('SoLuong');
+        const b = document.getElementById('DonGia');
+        console.log(a);
+        console.log(b);
+        b.addEventListener('keyup', () => {
+        let totalPrice = document.getElementById('ThanhTien');
+        
+        totalPrice.value = parseInt(a) * parseInt(b);
+    });
+    </script>*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

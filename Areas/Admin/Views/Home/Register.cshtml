@@ -1,0 +1,57 @@
+﻿@model QLPKDKTN.Models.BacSi
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    tr {
+        line-height: 2.5;
+    }
+
+    td {
+        padding-top: 10px;
+    }
+
+    h1 {
+        color: crimson;
+    }
+</style>
+
+<h1>Đăng ký</h1>
+<div class="container;">
+    <div class="col-6">
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(bs => bs.HoTen, "Họ Tên:")</td>
+                    <td>@Html.TextBoxFor(bs => bs.HoTen, new { @placeholder = "Nhập họ tên" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(bs => bs.SDT, "Số Điện Thoại:")</td>
+                    <td>@Html.TextBoxFor(bs => bs.SDT, new { @placeholder = "Nhập SĐT" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(bs => bs.Email, "Email:")</td>
+                    <td>@Html.TextBoxFor(bs => bs.Email, new { @placeholder = "Nhập email" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(bs => bs.Password, "Mật Khẩu:")</td>
+                    <td>@Html.TextBoxFor(bs => bs.Password, new { @placeholder = "Nhập mật khẩu" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(bs => bs.ConfirmPassword, "Xác Nhận Mật Khẩu:")</td>
+                    <td>@Html.TextBoxFor(bs => bs.ConfirmPassword, new { @placeholder = "Nhập lại mật khẩu" })</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Đăng Ký" /></td>
+                </tr>
+
+
+            </table>
+
+
+        }
+    </div>
+</div>

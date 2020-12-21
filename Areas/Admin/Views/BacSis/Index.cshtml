@@ -1,0 +1,57 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            HoTen
+        </th>
+        <th>
+            SDT
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            role
+        </th>
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewBag.BacSi)
+    {
+        <tr>
+            <td>
+                @item.HoTen
+            </td>
+            <td>
+                @item.SDT
+            </td>
+            <td>
+                @item.Email
+            </td>
+            <td>
+                @item.role
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,41 @@
+﻿@model QLPKDKTN.Models.BenhNhan
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    tr {
+        line-height: 2.5;
+    }
+
+    td {
+        padding-top: 10px;
+    }
+
+    h2 {
+        color: crimson;
+    }
+</style>
+<h2>Đăng Nhập</h2>
+<div class="container;">
+    <div class="col-6">
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Email, "Email")</td>
+                    <td>@Html.TextBoxFor(m => m.Email, new { @placeholder = "Nhập email" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Password, "Password")</td>
+                    <td>@Html.PasswordFor(m => m.Password, new { @placeholder = "Nhập password" })</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Đăng Nhập" /></td>
+                </tr>
+            </table>
+
+        }
+    </div>
+</div>

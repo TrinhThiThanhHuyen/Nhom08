@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .navbar-inverse {
+            background-image: linear-gradient( 135deg, #81FFEF 10%, #F067B4 100%) !important;
+            border: none !important;
+            opacity: 0.9 !important;
+        }
+
+            .navbar-inverse .navbar-nav > li > a {
+                color: #000 !important;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .navbar-inverse .navbar-nav > li:hover a {
+                color: #772222 !important;
+            }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Thông Tin Phòng Khám", "Infor", "Home")</li>
+                    @if (Session["idBenhNhan"] == null)
+                    {
+
+                        <li>@Html.ActionLink("Đăng Ký", "Register", "Home")</li>
+                        <li style="display:flex;align-items:center"><img width="32" height="32" src="~/images/user.svg" />@Html.ActionLink("Đăng Nhập", "Login", "Home")</li>
+                    }
+                    else
+                    {
+                        <li><a> Xin chào: @Session["tenBN"]</a></li>
+                        <li>@Html.ActionLink("Đăng Xuất", "Logout", "Home")</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <div style="position: absolute;
+        bottom:0px;
+        margin-left:0px;
+        width: 100%;
+        font-size:17px;
+        text-align: left;">
+            <div style="color:lightseagreen;
+                font-family: Blippo, fantasy;">Hotline: 0123868686</div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
